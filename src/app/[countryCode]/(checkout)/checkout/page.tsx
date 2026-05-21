@@ -20,7 +20,7 @@ const fetchCart = async () => {
     return notFound()
   }
 
-  const cart = await getCart(cartId).then((cart) => cart)
+  const cart = await getCart(cartId)
 
   if (cart?.items.length) {
     const enrichedItems = await enrichLineItems(cart?.items, cart?.region_id)
