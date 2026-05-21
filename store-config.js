@@ -6,7 +6,8 @@ function withStoreConfig(nextConfig = {}) {
 
   Object.entries(features).forEach(([key, value]) => {
     if (value) {
-      nextConfig.env[`FEATURE_${key.toUpperCase()}_ENABLED`] = true
+      // Next.js expects env values to be strings; serialize booleans to strings
+      nextConfig.env[`FEATURE_${key.toUpperCase()}_ENABLED`] = String(value)
     }
   })
 
