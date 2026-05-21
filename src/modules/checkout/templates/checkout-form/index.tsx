@@ -8,6 +8,7 @@ import Addresses from "@modules/checkout/components/addresses"
 import Payment from "@modules/checkout/components/payment"
 import Review from "@modules/checkout/components/review"
 import Shipping from "@modules/checkout/components/shipping"
+import Wrapper from "@modules/checkout/components/payment-wrapper"
 import { cookies } from "next/headers"
 import { CartWithCheckoutStep } from "types/global"
 
@@ -56,7 +57,9 @@ export default async function CheckoutForm() {
         </div>
 
         <div>
-          <Payment cart={cart} />
+          <Wrapper cart={cart}>
+            <Payment cart={cart} />
+          </Wrapper>
         </div>
 
         <div>
